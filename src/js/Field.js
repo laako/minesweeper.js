@@ -23,6 +23,7 @@ class Field {
 	createField({ containerElement, width, height }) {
 		const table = document.createElement('table');
 		table.style.borderCollapse = 'collapse';
+		table.style.background = '#EEE';
 		this.resetButton.style.zIndex = 1020;
 		for (let i = 0; i < height; i++) {
 			const row = document.createElement('tr');
@@ -68,10 +69,10 @@ class Field {
 			this.resetButton.click();
 		}
 
-    const cell = this.cells[y][x];
-    
+		const cell = this.cells[y][x];
+
 		if (e.button === 2) {
-      if (cell.content.isOpen) return
+			if (cell.content.isOpen) return;
 			cell.content.hasFlag
 				? ((cell.element.innerHTML = '<i class="fas fa-square"></i>'),
 				  (cell.content.hasFlag = false))
@@ -93,6 +94,15 @@ class Field {
 
 	openCells({ x, y }) {
 		const cells = this.cells;
+		const cellClicked = cells[y][x];
+
+		if (cellClicked.content.threat > 0 && !cellClicked.content.hasMine) {
+			cellClicked.content.isOpen = true;
+			cellClicked.element.innerHTML = cellClicked.content.threat;
+			this.cellsOpened++
+			return
+		}
+
 		for (let i = -1; i <= 1; i++) {
 			for (let k = -1; k <= 1; k++) {
 				const nx = x + k;

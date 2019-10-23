@@ -1,9 +1,6 @@
 import Field from './Field';
 
 const rootElement = document.getElementById('root');
-rootElement.style.margin = '0 auto';
-rootElement.style.maxWidth = '500px';
-rootElement.style.width = '100%';
 const containerElement = document.createElement('div');
 const settingsElement = document.createElement('div');
 rootElement.append(settingsElement);
