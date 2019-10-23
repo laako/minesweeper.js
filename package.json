@@ -1,8 +1,8 @@
 {
-  "name": "boilerplate",
+  "name": "minesweeper",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "dependencies": {
     "normalize.css": "^8.0.1"
   },
@@ -20,7 +20,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC"
